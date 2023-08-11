@@ -31,10 +31,10 @@
                 @Html.DisplayFor(modelItem => item.DefaultDays)
             </td>      
             <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary p-1"><i class="fa-solid fa-pen"></i>&nbsp;Edit</a>
-                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary p-1"><i class="fa-solid fa-circle-info"></i>&nbsp;Details</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary p-1"><i class="fa-solid fa-pen fa-xs"></i>&nbsp;Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary p-1"><i class="fa-solid fa-circle-info fa-xs"></i>&nbsp;Details</a>
                   @*<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger p-1">Delete</a>*@
-                    <button data-id="@item.Id" class="btn btn-danger p-1 deleteBtn" type="button"><i class="fa-solid fa-delete-left"></i>&nbsp;Delete</button>
+                    <button data-id="@item.Id" class="btn btn-danger p-1 deleteBtn" type="button"><i class="fa-solid fa-delete-left fa-xs"></i>&nbsp;Delete</button>
             </td>
         </tr>
 }
