@@ -31,18 +31,22 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="" asp-action="">My Leave</a>
                         </li>
+                        @if (User.IsInRole("Administrator"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Leave Management
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-controller="LeaveTypes" asp-action="Index">Leave Types</a></li>
+                                    <li><a class="dropdown-item" asp-controller="" asp-action="">Leave Allocations</a></li>
+                                    <li><a class="dropdown-item" asp-controller="" asp-action="">Leave Requests</a></li>
+                                    <li><a class="dropdown-item" asp-controller="" asp-action="">Employee Management</a></li>
+                                </ul>
+                            </li>
+                        }
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Leave Management
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" asp-controller="LeaveTypes" asp-action="Index">Leave Types</a></li>
-                                <li><a class="dropdown-item" asp-controller="" asp-action="">Leave Allocations</a></li>
-                                <li><a class="dropdown-item" asp-controller="" asp-action="">Leave Requests</a></li>
-                                <li><a class="dropdown-item" asp-controller="" asp-action="">Employee Management</a></li>
-                            </ul>
-                        </li>
+                        
                        
                     </ul>
                     <partial name="_LoginPartial" />
@@ -56,9 +60,9 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted bg-dark">
         <div class="container">
-            &copy; @DateTime.Now.Year - Leave Management Web - NET 6 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <a class="text-light">&copy; @DateTime.Now.Year - Leave Management Web - NET 6 -</a>   <a class="text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

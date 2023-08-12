@@ -4,6 +4,7 @@ using LeaveManagementWeb.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LeaveManagementWeb.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230812102049_AddedDefaultUsersAndRoles")]
+    partial class AddedDefaultUsersAndRoles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,21 +106,19 @@ namespace LeaveManagementWeb.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "72a856f4-0797-4d8d-9be6-c10d8d17a93d",
+                            Id = "f4ba8547-8e89-49bc-8ff9-1c3b52f15b92",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c3d96a06-f90f-4845-92ef-84826274481c",
+                            ConcurrencyStamp = "cd7035a0-35d3-410d-be52-624bdad7dcaf",
                             Email = "vasile.linga1@gmail.com",
-                            EmailConfirmed = true,
+                            EmailConfirmed = false,
                             FirstName = "Linga",
                             LastName = "Vasile",
                             LockoutEnabled = false,
                             NormalizedEmail = "VASILE.LINGA1@GMAIL.COM",
-                            NormalizedUserName = "VASILE.LINGA1@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAELMiSnhZaxbvXa4tn68ixt+RCyrkUUNV5/nm8UqL/GF5mcaXg78JF8QZla7hwini4A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJHIII0P091RtSyKjod+kTooRXl9VXBksMJD8GiY32q16KV5xOeNHv6LlhAH+M9UdQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3606016c-b209-46ac-a1b4-6af28bd612dd",
-                            TwoFactorEnabled = false,
-                            UserName = "vasile.linga1@gmail.com"
+                            SecurityStamp = "f3bb1680-33da-4d96-9c76-753ead52356c",
+                            TwoFactorEnabled = false
                         });
                 });
 
@@ -207,15 +207,15 @@ namespace LeaveManagementWeb.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d4ca2532-6e74-49fc-8dc8-3c3b11f26b82",
-                            ConcurrencyStamp = "d9b76c1a-c838-4503-abd0-093eb52d409f",
+                            Id = "f4fa2536-6e79-49bc-8dc9-1c3b52f25b92",
+                            ConcurrencyStamp = "6d657d33-fdff-4979-9d18-453be17aebb5",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "f2ba8547-8e71-41bc-8ff9-1c3b12f15e92",
-                            ConcurrencyStamp = "2a61d8c0-0b78-4092-8a75-712dc69646e7",
+                            ConcurrencyStamp = "15d7adae-15f4-4743-9af2-b2e292dbed94",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -312,8 +312,8 @@ namespace LeaveManagementWeb.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "72a856f4-0797-4d8d-9be6-c10d8d17a93d",
-                            RoleId = "d4ca2532-6e74-49fc-8dc8-3c3b11f26b82"
+                            UserId = "f4ba8547-8e89-49bc-8ff9-1c3b52f15b92",
+                            RoleId = "f4fa2536-6e79-49bc-8dc9-1c3b52f25b92"
                         });
                 });
 

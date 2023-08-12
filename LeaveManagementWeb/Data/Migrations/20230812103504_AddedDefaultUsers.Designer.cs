@@ -4,6 +4,7 @@ using LeaveManagementWeb.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LeaveManagementWeb.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230812103504_AddedDefaultUsers")]
+    partial class AddedDefaultUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,9 +106,9 @@ namespace LeaveManagementWeb.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "72a856f4-0797-4d8d-9be6-c10d8d17a93d",
+                            Id = "f4ba8547-8e89-49bc-8ff9-1c3b52f15b92",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c3d96a06-f90f-4845-92ef-84826274481c",
+                            ConcurrencyStamp = "c42a9beb-e5a1-4cd7-a412-04cff5795575",
                             Email = "vasile.linga1@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Linga",
@@ -114,9 +116,9 @@ namespace LeaveManagementWeb.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "VASILE.LINGA1@GMAIL.COM",
                             NormalizedUserName = "VASILE.LINGA1@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAELMiSnhZaxbvXa4tn68ixt+RCyrkUUNV5/nm8UqL/GF5mcaXg78JF8QZla7hwini4A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOIvUdsRWnTzWRtmaOa2MOImGqmmywX75cYixJercNh6M6bQP6IyiC+A9grBPmS7QA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3606016c-b209-46ac-a1b4-6af28bd612dd",
+                            SecurityStamp = "d583468e-e984-4035-af51-03945f95ff9b",
                             TwoFactorEnabled = false,
                             UserName = "vasile.linga1@gmail.com"
                         });
@@ -208,14 +210,14 @@ namespace LeaveManagementWeb.Data.Migrations
                         new
                         {
                             Id = "d4ca2532-6e74-49fc-8dc8-3c3b11f26b82",
-                            ConcurrencyStamp = "d9b76c1a-c838-4503-abd0-093eb52d409f",
+                            ConcurrencyStamp = "3559b5c2-7829-46f9-9105-c72608b0f11c",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "f2ba8547-8e71-41bc-8ff9-1c3b12f15e92",
-                            ConcurrencyStamp = "2a61d8c0-0b78-4092-8a75-712dc69646e7",
+                            ConcurrencyStamp = "65663185-29d8-4e54-8f1b-9ed1f31fad37",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -312,7 +314,7 @@ namespace LeaveManagementWeb.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "72a856f4-0797-4d8d-9be6-c10d8d17a93d",
+                            UserId = "f4ba8547-8e89-49bc-8ff9-1c3b52f15b92",
                             RoleId = "d4ca2532-6e74-49fc-8dc8-3c3b11f26b82"
                         });
                 });
