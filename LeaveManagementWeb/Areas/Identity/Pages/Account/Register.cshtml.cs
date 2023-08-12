@@ -87,10 +87,10 @@ namespace LeaveManagementWeb.Areas.Identity.Pages.Account
             public string LastName { get; set; }
             [DataType(DataType.Date)]
             [Display(Name = "Date of birth")]
-            public DateTime DateOfBirth { get; set; }
+            public DateTime? DateOfBirth { get; set; }
             [DataType(DataType.Date)]
             [Display(Name = "Date Joined")]
-            public DateTime DateJoined { get; set; }
+            public DateTime? DateJoined { get; set; }
 
 
 
