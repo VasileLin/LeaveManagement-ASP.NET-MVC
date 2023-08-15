@@ -31,6 +31,7 @@
                 @Html.DisplayFor(modelItem => item.DefaultDays)
             </td>      
             <td>
+                    <button data-id="@item.Id" class="btn btn-primary p-1 allocateBtn" type="button"><i class="fa-solid fa-plus"></i>&nbsp;Allocate Leave</button>
                     <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary p-1"><i class="fa-solid fa-pen fa-xs"></i>&nbsp;Edit</a>
                     <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary p-1"><i class="fa-solid fa-circle-info fa-xs"></i>&nbsp;Details</a>
                   @*<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger p-1">Delete</a>*@
@@ -45,15 +46,19 @@
     <input type="hidden" id="leaveTypeId" name="Id"/>
 </form>
 
+<form id="allocationForm" asp-action="AllocateLeave">
+    <input type="hidden" id="leaveTypeIdAllocate" name="Id" />
+</form>
+
 @section Scripts{
 
     <script>
         $(function(){
-            $('.table').DataTable();
+       
 
             $('.deleteBtn').click(function(e){
                 swal({
-                    title: "are you sure?",
+                    title: "Are you sure?",
                     text: "Are you sure you want to delete this record?",
                     icon: "warning",
                     buttons: true,
@@ -66,6 +71,26 @@
                         $('#deleteForm').submit();
 
                      }
+                });
+
+            });
+
+
+            $('.allocateBtn').click(function (e) {
+                swal({
+                    title: "Are you sure?",
+                    text: "Are you sure you want to allocation this leave to all employees?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true
+                }).then((confirm) => {
+                    if (confirm) {
+                        var btn = $(this);
+                        var id = btn.data("id");
+                        $('#leaveTypeIdAllocate').val(id);
+                        $('#allocationForm').submit();
+
+                    }
                 });
 
             });
