@@ -26,12 +26,15 @@ namespace LeaveManagementWeb
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            builder.Services.AddHttpContextAccessor();
+
             builder.Services.AddTransient<IEmailSender>(s=> new EmailSender("localhost",25, "no-reply@leavemanagement.com"));
 
             builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
              
             builder.Services.AddScoped<ILeaveTypeRepository, LeaveTypeRepository>();
             builder.Services.AddScoped<ILeaveAllocationRepository, LeaveAllocationRepository>();
+            builder.Services.AddScoped<ILeaveRequestsRepository, LeaveRequestRepository>();
 
             builder.Services.AddAutoMapper(typeof(MapperConfig));
 
