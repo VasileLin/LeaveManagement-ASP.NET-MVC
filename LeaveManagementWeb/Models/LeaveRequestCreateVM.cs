@@ -1,8 +1,5 @@
-﻿using LeaveManagementWeb.Data;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.Build.Framework;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using RequiredAttribute = System.ComponentModel.DataAnnotations.RequiredAttribute;
 
 namespace LeaveManagementWeb.Models
@@ -32,14 +29,14 @@ namespace LeaveManagementWeb.Models
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (StartDate>EndDate)
+            if (StartDate > EndDate)
             {
-                yield return new ValidationResult("Start date must be before end date", new[] {nameof(StartDate),nameof(EndDate)});
+                yield return new ValidationResult("Start date must be before end date", new[] { nameof(StartDate), nameof(EndDate) });
             }
 
             if (RequestComments?.Length > 500)
             {
-                yield return new ValidationResult("Comments are too long", new[] { nameof(RequestComments)});
+                yield return new ValidationResult("Comments are too long", new[] { nameof(RequestComments) });
 
             }
         }
