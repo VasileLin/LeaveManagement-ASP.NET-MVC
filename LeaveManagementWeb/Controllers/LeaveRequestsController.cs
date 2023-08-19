@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using LeaveManagementWeb.Constants;
+using LeaveManagementWeb.Contracts;
+using LeaveManagementWeb.Data;
+using LeaveManagementWeb.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using LeaveManagementWeb.Data;
-using LeaveManagementWeb.Models;
-using AutoMapper;
-using LeaveManagementWeb.Contracts;
-using Microsoft.AspNetCore.Authorization;
-using LeaveManagementWeb.Constants;
 
 namespace LeaveManagementWeb.Controllers
 {
@@ -54,7 +49,7 @@ namespace LeaveManagementWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ApproveRequest(int id,bool approved)
+        public async Task<IActionResult> ApproveRequest(int id, bool approved)
         {
             try
             {
@@ -75,7 +70,7 @@ namespace LeaveManagementWeb.Controllers
             {
                 LeaveTypes = new SelectList(_context.LeaveTypes, "Id", "Name"),
             };
-           
+
             return View(model);
         }
 
@@ -105,7 +100,7 @@ namespace LeaveManagementWeb.Controllers
                 ModelState.AddModelError(string.Empty, "An error has occurred,please try again later .");
             }
 
-           
+
             model.LeaveTypes = new SelectList(_context.LeaveTypes, "Id", "Name", model.LeaveTypeId);
             return View(model);
         }
@@ -124,7 +119,7 @@ namespace LeaveManagementWeb.Controllers
                 throw;
             }
             return RedirectToAction(nameof(MyLeave));
-        }   
+        }
 
         // GET: LeaveRequests/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -212,14 +207,14 @@ namespace LeaveManagementWeb.Controllers
             {
                 _context.LeaveRequests.Remove(leaveRequest);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool LeaveRequestExists(int id)
         {
-          return (_context.LeaveRequests?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.LeaveRequests?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

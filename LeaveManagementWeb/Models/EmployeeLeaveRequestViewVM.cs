@@ -1,6 +1,4 @@
-﻿using LeaveManagementWeb.Data;
-
-namespace LeaveManagementWeb.Models
+﻿namespace LeaveManagementWeb.Models
 {
     public class EmployeeLeaveRequestViewVM
     {
