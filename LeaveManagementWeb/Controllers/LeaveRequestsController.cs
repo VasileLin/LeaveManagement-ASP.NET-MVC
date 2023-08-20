@@ -1,7 +1,7 @@
-﻿using LeaveManagementWeb.Constants;
-using LeaveManagementWeb.Contracts;
-using LeaveManagementWeb.Data;
-using LeaveManagementWeb.Models;
+﻿using LeaveManagement.Common.Constants;
+using LeaveManagement.Application.Contracts;
+using LeaveManagement.Data;
+using LeaveManagement.Common.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,11 +14,15 @@ namespace LeaveManagementWeb.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly ILeaveRequestsRepository _leaveRequestsRepository;
+        private readonly ILogger<LeaveRequestsController> _logger;
 
-        public LeaveRequestsController(ApplicationDbContext context, ILeaveRequestsRepository leaveRequestsRepository)
+        public LeaveRequestsController(ApplicationDbContext context,
+            ILeaveRequestsRepository leaveRequestsRepository,
+            ILogger<LeaveRequestsController> logger)
         {
             _context = context;
             _leaveRequestsRepository = leaveRequestsRepository;
+            _logger = logger;
         }
 
         public async Task<IActionResult> MyLeave()
@@ -57,7 +61,7 @@ namespace LeaveManagementWeb.Controllers
             }
             catch (Exception ex)
             {
-
+                _logger.LogError(ex,"Error Approving Request");
                 throw;
             }
             return RedirectToAction(nameof(MyLeave));
@@ -97,6 +101,7 @@ namespace LeaveManagementWeb.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Error Creating Leave Request");
                 ModelState.AddModelError(string.Empty, "An error has occurred,please try again later .");
             }
 
@@ -115,7 +120,7 @@ namespace LeaveManagementWeb.Controllers
             }
             catch (Exception ex)
             {
-
+                _logger.LogError(ex, "Error Canceling Leave Request");
                 throw;
             }
             return RedirectToAction(nameof(MyLeave));

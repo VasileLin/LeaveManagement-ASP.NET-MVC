@@ -1,0 +1,21 @@
+﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
+
+namespace LeaveManagement.Common.Models
+{
+    public class LeaveAllocationVM
+    {
+        [Required]
+        public int Id { get; set; }
+
+        [Display(Name = "Number of Days")]
+        [Required]
+        [Range(1,50,ErrorMessage = " Invalid number Entered")]
+        public int NumberOfDays { get; set; }
+
+        [Required]
+        [Display(Name = "Allocation Period")]
+        public int Period { get; set; }
+        public LeaveTypeVM? LeaveType { get; set; }
+    }
+}
